@@ -1,14 +1,16 @@
+import React from 'react';
 import ProfileParagraph from './ProfileParagraph';
 
 function ProfileCard(profile) {
   return (
-    <div className="container">
-      <h2 style={{ marginTop: 0, color: "#333" }}>Profil użytkownika</h2>
-
-      <ProfileParagraph label="Imię" title={profile.name}/>
-      <ProfileParagraph label="Email" title={profile.email}/>
-      <ProfileParagraph label="Telefon" title={profile.phone}/>
-      <ProfileParagraph label="Data urodzin" title={profile.birthDate}/>
+    <div className="card shadow-sm h-100">
+      <div className="card-body">
+        <h5 className="card-title mb-3 text-primary">Profil użytkownika</h5>
+        <ProfileParagraph label="Imię" title={profile.name}/>
+        <ProfileParagraph label="Email" title={profile.email}/>
+        <ProfileParagraph label="Telefon" title={profile.phone}/>
+        <ProfileParagraph label="Data urodzin" title={profile.birthDate}/>
+      </div>
     </div>
   );
 }
