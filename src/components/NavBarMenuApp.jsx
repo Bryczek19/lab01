@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBarMenuApp() {
   return (
-    <Navbar bg="dark" data-bs-theme="dark" expand="lg">
+    <Navbar bg="success" data-bs-theme="dark" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/home">Frontend Laby</Navbar.Brand>
         <Navbar.Toggle aria-controls="main-nav" />
@@ -14,6 +14,7 @@ function NavBarMenuApp() {
             <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
             <Nav.Link as={NavLink} to="/lab01">Laboratorium 1</Nav.Link>
             <Nav.Link as={NavLink} to="/lab02">Laboratorium 2</Nav.Link>
+            <Nav.Link as={NavLink} to="/lab3">Laboratorium 3</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
