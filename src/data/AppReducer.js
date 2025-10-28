@@ -10,9 +10,15 @@ export default function AppReducer(state, action) {
 
     case "rate":
       return state.map((p) =>
-        p.id === action.id
-          ? { ...p, rating: p.rating === 10 ? 0 : p.rating + 1 }
-          : p
+        p.id === action.id ? { ...p, rating: p.rating === 10 ? 0 : p.rating + 1 } : p
+      );
+
+    case "add":
+      return [...state, action.item];
+
+    case "edit":
+      return state.map((p) =>
+        p.id === action.item.id ? { ...action.item } : p
       );
 
     default:
