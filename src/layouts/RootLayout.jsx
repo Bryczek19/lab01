@@ -6,15 +6,13 @@ import { Outlet } from 'react-router-dom';
 function RootLayout() {
   return (
     <>
-      <NavBarMenuApp/>
+      <NavBarMenuApp />
       <Container className="my-4">
-        <Outlet/>
+        <Outlet />  {/* <- tutaj React wczytuje aktualną stronę */}
       </Container>
-      <FooterApp/>
+      <FooterApp />
     </>
   );
 }
 
 export default RootLayout;
-
-
