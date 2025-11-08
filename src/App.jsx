@@ -12,6 +12,7 @@ import Lab4EditForm from './pages/Lab4EditForm';
 import Lab5Page from './pages/Lab5Page';
 import UserPage from './pages/UserPage';
 import PostPage from './pages/PostPage';
+import PostCommentsPage from './pages/PostCommentsPage'; 
 import NotFound from './pages/NotFound';
 import AppProvider from './data/AppProvider';
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="lab5" element={<Lab5Page />} />
           <Route path="lab5/user/:id" element={<UserPage />} />
           <Route path="lab5/post/:id" element={<PostPage />} />
+          <Route path="lab5/post/:id/comments" element={<PostCommentsPage />} /> 
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

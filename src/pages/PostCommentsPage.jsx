@@ -1,24 +1,26 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
-export default function PostPage() {
+export default function PostCommentsPage() {
   const { id } = useParams();
+
   const [post] = useFetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const [comments] = useFetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
 
-  if (!post || !post.id) return <div className="text-center mt-5">⏳ Wczytywanie posta…</div>;
+  if (!post?.title) {
+    return <div className="text-center mt-4">⏳ Wczytywanie posta...</div>;
+  }
 
   return (
     <div className="container mt-4">
-      <h3>{post.title}</h3>
-      <p className="text-muted">{post.body}</p>
-      <hr />
-      <h5>Komentarze</h5>
-      <ul>
+      <h2>{post.title}</h2>
+      <h4>Komentarze:</h4>
+
+      <ul className="list-group mt-3">
         {comments.map((c) => (
-          <li key={c.id} className="mb-2">
-            <b>{c.name}</b> — <i>{c.email}</i>
-            <div>{c.body}</div>
+          <li key={c.id} className="list-group-item">
+            <b>{c.email}</b><br />
+            {c.body}
           </li>
         ))}
       </ul>

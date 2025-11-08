@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 
-function useFetch(url) {
+export default function useFetch(url) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    let abort = false;
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => setData(data))
-      .catch((err) => console.error("Błąd przy pobieraniu danych:", err));
+      .then((r) => r.json())
+      .then((d) => { if (!abort) setData(d); })
+      .catch(console.error);
+    return () => { abort = true; };
   }, [url]);
 
   return [data];
 }
-
-export default useFetch;
